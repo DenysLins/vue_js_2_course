@@ -14,7 +14,7 @@
 
     <div id="app">
         <input type="text" v-on:input="changeTitle">
-        <h1>{{ title }}</h1>
+        <h1 v-once>{{ title }}</h1>
         <p>{{ sayHello() }}</p>
         <a v-bind:href="link">Google</a>
     </div>
