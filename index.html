@@ -14,8 +14,9 @@
 
     <div id="app">
         <input type="text" v-on:input="changeTitle">
-        <p>{{ title }}</p>
+        <h1>{{ title }}</h1>
         <p>{{ sayHello() }}</p>
+        <a v-bind:href="link">Google</a>
     </div>
 
     <script src="index.js"></script>
