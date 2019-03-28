@@ -3,7 +3,8 @@ var app = new Vue({
     data: {
         title: 'Denys',
         link: 'http://www.google.com',
-        finishedLink: '<a href="https://denyslins.com">Denys Lins</a>'
+        finishedLink: '<a href="https://denyslins.com">Denys Lins</a>',
+        counter: 0
     },
     methods: {
         changeTitle: function (event) {
@@ -11,6 +12,9 @@ var app = new Vue({
         },
         sayHello: function () {
             return 'Hello ' + this.title + '!!!';
+        },
+        increase: function () {
+            this.counter++;
         }
     },
 });
