@@ -15,8 +15,8 @@ var app = new Vue({
         sayHello: function () {
             return 'Hello ' + this.title + '!!!';
         },
-        increase: function () {
-            this.counter++;
+        increase: function (step, event) {
+            this.counter += step;
         },
         updateCoordinates: function (event) {
             this.x = event.clientX;
