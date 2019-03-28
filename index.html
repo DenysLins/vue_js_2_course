@@ -15,13 +15,18 @@
     <div id="app">
         <input type="text" v-on:input="changeTitle">
         <h1 v-once>{{ title }}</h1>
+        <hr>
         <p>{{ sayHello() }}</p>
+        <hr>
         <a v-bind:href="link">Google</a>
+        <hr>
         <p>{{ finishedLink }}</p>
         <p v-html="finishedLink"></p>
-
+        <hr>
         <button v-on:click="increase">Click me</button>
         <p>{{ counter }}</p>
+        <hr>
+        <P v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</P>
     </div>
 
     <script src="index.js"></script>
