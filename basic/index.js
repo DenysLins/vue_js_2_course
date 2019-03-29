@@ -17,6 +17,14 @@ var app = new Vue({
             return this.counter2 > 10 ? 'Greater than 10' : 'Small than 10';
         }
     },
+    watch: {
+        counter2: function (value) {
+            var vm = this;
+            setTimeout(function () {
+                vm.counter2 = 0;
+            }, 2000);
+        }
+    },
     methods: {
         changeTitle: function (event) {
             this.title = event.target.value;
