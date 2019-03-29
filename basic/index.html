@@ -12,7 +12,7 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" @click="attachRed = !attachRed" :class="{red: attachRed}">
         <input type="text" @input="changeTitle">
         <h1 v-once>{{ title }}</h1>
         <hr>

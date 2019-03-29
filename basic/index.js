@@ -9,7 +9,8 @@ var app = new Vue({
         y: 0,
         name: 'Denys',
         counter2: 0,
-        counter3: 0
+        counter3: 0,
+        attachRed: false
     },
     computed: {
         output: function () {
