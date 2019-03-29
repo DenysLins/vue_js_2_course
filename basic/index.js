@@ -10,7 +10,8 @@ var app = new Vue({
     name: 'Denys',
     counter2: 0,
     counter3: 0,
-    attachRed: false
+    attachRed: false,
+    shown: true
   },
   computed: {
     output: function () {
@@ -18,8 +19,8 @@ var app = new Vue({
     },
     divClass: function () {
       return {
-        red: this.attachRed,
-        blue: !this.attachRed
+        honeydew: this.attachRed,
+        gray: !this.attachRed
       }
     }
   },

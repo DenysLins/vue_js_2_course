@@ -40,7 +40,12 @@
     <button @click="counter2--">Decrease 2</button>
     <button @click="counter3++">Increase 3</button>
     <p>Counter2: {{ counter2 }} | {{ counter3 }} </p>
+    <hr>
     <p>Result: {{ result() }} | {{ output }} </p>
+    <h1 v-if="show">Mostrar</h1>
+    <h1 v-else>Não Mostar</h1>
+    <button @click="show = !show">Mostrar</button>
+
   </div>
 
   <script src="index.js"></script>
