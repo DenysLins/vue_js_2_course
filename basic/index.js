@@ -1,4 +1,4 @@
-new Vue({
+var app = new Vue({
   el: '#app',
   data: {
     title: 'Denys',
@@ -6,7 +6,30 @@ new Vue({
     finishedLink: '<a href="https://denyslins.com">Denys Lins</a>',
     counter: 0,
     x: 0,
-    y: 0
+    y: 0,
+    name: 'Denys',
+    counter2: 0,
+    counter3: 0,
+    attachRed: false
+  },
+  computed: {
+    output: function () {
+      return this.counter2 > 10 ? 'Greater than 10' : 'Small than 10';
+    },
+    divClass: function () {
+      return {
+        red: this.attachRed,
+        blue: !this.attachRed
+      }
+    }
+  },
+  watch: {
+    counter2: function (value) {
+      var vm = this;
+      setTimeout(function () {
+        vm.counter2 = 0;
+      }, 2000);
+    }
   },
   methods: {
     changeTitle: function (event) {
@@ -21,6 +44,12 @@ new Vue({
     updateCoordinates: function (event) {
       this.x = event.clientX;
       this.y = event.clientY;
+    },
+    alertMe: function () {
+      alert('Teste!!!');
+    },
+    result: function () {
+      return this.counter2 > 10 ? 'Greater than 10' : 'Small than 10';
     }
   },
 });
