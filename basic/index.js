@@ -16,6 +16,12 @@ var app = new Vue({
         output: function () {
             console.log('Computed!')
             return this.counter2 > 10 ? 'Greater than 10' : 'Small than 10';
+        },
+        divClass: function () {
+            return {
+                red: this.attachRed,
+                blue: !this.attachRed
+            }
         }
     },
     watch: {
