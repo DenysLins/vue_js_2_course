@@ -30,7 +30,11 @@
         <P v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} -
             <span v-on:mousemove.stop>DEAD SPOT</span>
         </p>
+        <hr>
         <input v-on:keyup.enter.space="alertMe" otype="text">
+        <hr>
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
     </div>
 
     <script src="index.js"></script>

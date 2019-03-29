@@ -6,7 +6,8 @@ var app = new Vue({
         finishedLink: '<a href="https://denyslins.com">Denys Lins</a>',
         counter: 0,
         x: 0,
-        y: 0
+        y: 0,
+        name: 'Denys'
     },
     methods: {
         changeTitle: function (event) {
