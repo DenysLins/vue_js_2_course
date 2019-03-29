@@ -7,7 +7,15 @@ var app = new Vue({
         counter: 0,
         x: 0,
         y: 0,
-        name: 'Denys'
+        name: 'Denys',
+        counter2: 0,
+        counter3: 0
+    },
+    computed: {
+        output: function () {
+            console.log('Computed!')
+            return this.counter2 > 10 ? 'Greater than 10' : 'Small than 10';
+        }
     },
     methods: {
         changeTitle: function (event) {
@@ -25,6 +33,10 @@ var app = new Vue({
         },
         alertMe: function () {
             alert('Teste!!!');
+        },
+        result: function () {
+            console.log('Method!')
+            return this.counter2 > 10 ? 'Greater than 10' : 'Small than 10';
         }
     },
 });

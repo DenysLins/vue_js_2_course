@@ -35,6 +35,12 @@
         <hr>
         <input type="text" v-model="name">
         <p>{{ name }}</p>
+        <hr>
+        <button v-on:click="counter2++">Increase 2</button>
+        <button v-on:click="counter2--">Decrease 2</button>
+        <button v-on:click="counter3++">Increase 3</button>
+        <p>Counter2: {{ counter2 }} | {{ counter3 }} </p>
+        <p>Result: {{ result() }} | {{ output }} </p>
     </div>
 
     <script src="index.js"></script>
