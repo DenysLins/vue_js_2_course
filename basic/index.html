@@ -1,70 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>VueJS</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>VueJS</title>
-  <link rel="stylesheet" href="index.css" />
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-
-<body>
-  <div id="app" @click="attachRed = !attachRed" :class="divClass">
-    <input type="text" @input="changeTitle" />
-    <h1 v-once>{{ title }}</h1>
-    <hr />
-    <p>{{ sayHello() }}</p>
-    <hr />
-    <a :href="link">Google</a>
-    <hr />
-    <p>{{ finishedLink }}</p>
-    <p v-html="finishedLink"></p>
-    <hr />
-    <button @click="increase(2, $event)">Click me</button>
-    <button @click="counter++">Click me</button>
-    <p>{{ counter * 2 > 10 ? "Greater than 10" : "Smaller than 10" }}</p>
-    <hr />
-    <P @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} -
-      <span @mousemove.stop>DEAD SPOT</span>
-    </P>
-    <hr />
-    <input @keyup.enter.space="alertMe" otype="text" />
-    <hr />
-    <input type="text" v-model="name" />
-    <p>{{ name }}</p>
-    <hr />
-    <button @click="counter2++">Increase 2</button>
-    <button @click="counter2--">Decrease 2</button>
-    <button @click="counter3++">Increase 3</button>
-    <p>Counter2: {{ counter2 }} | {{ counter3 }}</p>
-    <hr />
-    <p>Result: {{ result() }} | {{ output }}</p>
-    <h1 v-if="show">Mostrar</h1>
-    <h1 v-else>Não Mostar</h1>
-    <button @click="show = !show">Mostrar</button>
-    <hr>
-    <template v-if="show">
-      <h1>Detach Element</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas,
-        doloribus repellat.
-      </p>
-      <button @click="show = !show">Detach</button>
-    </template>
-    <hr>
-    <div v-show="show">
-      <h1>Hide Element</h1>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas,
-        doloribus repellat.
-      </p>
-      <button @click="show = !show">Hide</button>
+  <body>
+    <div id="app" @click="attachRed = !attachRed" :class="divClass">
+      <input type="text" @input="changeTitle" />
+      <h1 v-once>{{ title }}</h1>
+      <hr />
+      <p>{{ sayHello() }}</p>
+      <hr />
+      <a :href="link">Google</a>
+      <hr />
+      <p>{{ finishedLink }}</p>
+      <p v-html="finishedLink"></p>
+      <hr />
+      <button @click="increase(2, $event)">Click me</button>
+      <button @click="counter++">Click me</button>
+      <p>{{ counter * 2 > 10 ? "Greater than 10" : "Smaller than 10" }}</p>
+      <hr />
+      <P @mousemove="updateCoordinates"
+        >Coordinates: {{ x }} / {{ y }} -
+        <span @mousemove.stop>DEAD SPOT</span>
+      </P>
+      <hr />
+      <input @keyup.enter.space="alertMe" otype="text" />
+      <hr />
+      <input type="text" v-model="name" />
+      <p>{{ name }}</p>
+      <hr />
+      <button @click="counter2++">Increase 2</button>
+      <button @click="counter2--">Decrease 2</button>
+      <button @click="counter3++">Increase 3</button>
+      <p>Counter2: {{ counter2 }} | {{ counter3 }}</p>
+      <hr />
+      <p>Result: {{ result() }} | {{ output }}</p>
+      <h1 v-if="show">Mostrar</h1>
+      <h1 v-else>Não Mostar</h1>
+      <button @click="show = !show">Mostrar</button>
+      <hr />
+      <template v-if="show">
+        <h1>Detach Element</h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas,
+          doloribus repellat.
+        </p>
+        <button @click="show = !show">Detach</button>
+      </template>
+      <hr />
+      <div v-show="show">
+        <h1>Hide Element</h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas,
+          doloribus repellat.
+        </p>
+        <button @click="show = !show">Hide</button>
+      </div>
     </div>
-  </div>
 
-  <script src="index.js"></script>
-</body>
-
+    <script src="index.js"></script>
+  </body>
 </html>
