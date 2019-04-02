@@ -1,5 +1,4 @@
 var app1 = new Vue({
-  el: '#app1',
   data: {
     title: 'Denys',
     link: 'http://www.google.com',
@@ -56,6 +55,7 @@ var app1 = new Vue({
 });
 
 setTimeout(function () {
+  app1.$mount('#app1');
   app1.title = "Changed by timeout!";
   app1.alertMe();
   app2.$refs.myButton.innerText = 'Changed using $refs in setTimeout'
