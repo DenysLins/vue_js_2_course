@@ -11,7 +11,7 @@ var app1 = new Vue({
     counter2: 0,
     counter3: 0,
     attachRed: false,
-    shown: true
+    show: true
   },
   computed: {
     output: function () {
