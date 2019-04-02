@@ -56,7 +56,9 @@ var app1 = new Vue({
 });
 
 setTimeout(function () {
-  app1.title = "Changed by timeout!"
+  app1.title = "Changed by timeout!";
+  app1.alertMe();
+  app2.$refs.myButton.innerText = 'Changed using $refs in setTimeout'
 }, 5000);
 
 
@@ -67,7 +69,8 @@ var app2 = new Vue({
   },
   methods: {
     changeTitle: function () {
-      app1.title = "Changed by App 2!"
+      app1.title = "Changed by App 2!";
+      this.$refs.myButton.innerText = 'Changed using $refs when clicked';
     }
   }
 });
