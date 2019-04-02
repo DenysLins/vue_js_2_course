@@ -1,4 +1,4 @@
-new Vue({
+var app1 = new Vue({
   el: '#app1',
   data: {
     title: 'Denys',
@@ -55,11 +55,19 @@ new Vue({
   },
 });
 
+setTimeout(function () {
+  app1.title = "Changed by timeout!"
+}, 5000);
 
-new Vue({
+
+var app2 = new Vue({
   el: '#app2',
   data: {
     title: 'APP 2'
+  },
+  methods: {
+    changeTitle: function () {
+      app1.title = "Changed by App 2!"
+    }
   }
-
 });
