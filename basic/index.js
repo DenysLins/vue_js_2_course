@@ -74,3 +74,9 @@ var app2 = new Vue({
     }
   }
 });
+
+var app3 = new Vue({
+  template: '<h1>Hello from Template</h1>'
+});
+
+app3.$mount('#app3');
