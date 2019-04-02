@@ -1,5 +1,5 @@
-var app = new Vue({
-  el: '#app',
+new Vue({
+  el: '#app1',
   data: {
     title: 'Denys',
     link: 'http://www.google.com',
@@ -53,4 +53,13 @@ var app = new Vue({
       return this.counter2 > 10 ? 'Greater than 10' : 'Small than 10';
     }
   },
+});
+
+
+new Vue({
+  el: '#app2',
+  data: {
+    title: 'APP 2'
+  }
+
 });
