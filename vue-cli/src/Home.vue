@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-server-status v-for="i in 5"></app-server-status>
+    <app-server-status v-for="i in 5" :name="name"></app-server-status>
   </div>
 </template>
 
@@ -9,6 +9,7 @@ import ServerStatus from "./ServerStatus.vue";
 export default {
   components: {
     "app-server-status": ServerStatus
-  }
+  },
+  props: ["name"]
 };
 </script>

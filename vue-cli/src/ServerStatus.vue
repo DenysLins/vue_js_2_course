@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>Server status: {{ status }}</p>
+    <p>This name was sent from parent component: {{ name }}</p>
     <hr>
     <button @click="changeStatus">Change Status</button>
   </div>
@@ -17,6 +18,7 @@ export default {
     changeStatus() {
       this.status = !this.status;
     }
-  }
+  },
+  props: ["name"]
 };
 </script>
