@@ -5,6 +5,7 @@
     <p>This call a function accessing and reversing props throught .this: {{ switchName() }}</p>
     <hr>
     <button @click="changeStatus">Change Status</button>
+    <button @click="resetName">Reset Name</button>
   </div>
 </template>
 
@@ -24,6 +25,9 @@ export default {
         .split("")
         .reverse()
         .join("");
+    },
+    resetName() {
+      this.$emit("nameWasReset", "Denys");
     }
   },
   props: {

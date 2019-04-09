@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-server-status v-for="i in 5" :name="name"></app-server-status>
+    <app-server-status v-for="i in 5" :name="name" @nameWasReset="launchEvent($event)"></app-server-status>
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
     name: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    launchEvent(event) {
+      this.$emit("nameWasReset", event);
     }
   }
 };

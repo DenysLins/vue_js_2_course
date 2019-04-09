@@ -2,7 +2,7 @@
   <div>
     <h1>Hello {{ name }}</h1>
     <button @click="changeMyName">Change my name</button>
-    <app-home :name="name"></app-home>
+    <app-home :name="name" @nameWasReset="name = $event"></app-home>
   </div>
 </template>
 
