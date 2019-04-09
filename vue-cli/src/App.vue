@@ -2,7 +2,7 @@
   <div>
     <h1>Hello {{ name }}</h1>
     <button @click="changeMyName">Change my name</button>
-    <app-home :name="name" @nameWasReset="name = $event"></app-home>
+    <app-home :name="name" :resetFn="resetName"></app-home>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
   methods: {
     changeMyName() {
       this.name = "André";
+    },
+    resetName() {
+      this.name = "Denys";
     }
   }
 };
