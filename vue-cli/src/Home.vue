@@ -10,6 +10,11 @@ export default {
   components: {
     "app-server-status": ServerStatus
   },
-  props: ["name"]
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>

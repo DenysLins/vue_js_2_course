@@ -26,6 +26,11 @@ export default {
         .join("");
     }
   },
-  props: ["name"]
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  }
 };
 </script>
