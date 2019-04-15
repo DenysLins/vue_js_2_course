@@ -6,10 +6,12 @@
     <hr>
     <button @click="changeStatus">Change Status</button>
     <button @click="resetFn">Reset Name</button>
+    <button @click="emitEventBus">Reset Name</button>
   </div>
 </template>
 
 <script>
+import { eventBus } from './main.js';
 export default {
   data: function() {
     return {
@@ -25,6 +27,9 @@ export default {
         .split("")
         .reverse()
         .join("");
+    },
+    emitEventBus() {
+      eventBus.$emit('resetNameByBus', 'Denys');
     }
   },
   props: {

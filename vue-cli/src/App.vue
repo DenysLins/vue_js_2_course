@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { eventBus } from "./main.js";
+
 export default {
   data: function() {
     return {
@@ -20,6 +22,11 @@ export default {
     resetName() {
       this.name = "Denys";
     }
+  },
+  created() {
+    eventBus.$on("resetNameByBus", name => {
+      this.name = name;
+    });
   }
 };
 </script>
