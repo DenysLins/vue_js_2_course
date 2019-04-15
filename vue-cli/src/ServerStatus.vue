@@ -29,7 +29,8 @@ export default {
         .join("");
     },
     emitEventBus() {
-      eventBus.$emit('resetNameByBus', 'Denys');
+      // eventBus.$emit('resetNameByBus', 'Denys');
+      eventBus.changeName('Denys');
     }
   },
   props: {
