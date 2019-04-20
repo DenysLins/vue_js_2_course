@@ -17,7 +17,7 @@ div {
   text-align: center;
 }
 
-h1 {
+/* h1 {
   color: red;
-}
+} */
 </style>
