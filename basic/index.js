@@ -20,7 +20,7 @@ var app1 = new Vue({
       return {
         honeydew: this.attachRed,
         gray: !this.attachRed
-      }
+      };
     }
   },
   watch: {
@@ -58,7 +58,7 @@ setTimeout(function () {
   app1.$mount('#app1');
   app1.title = "Changed by timeout!";
   app1.alertMe();
-  app2.$refs.myButton.innerText = 'Changed using $refs in setTimeout'
+  app2.$refs.myButton.innerText = 'Changed using $refs in setTimeout';
 }, 5000);
 
 

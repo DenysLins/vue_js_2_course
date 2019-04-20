@@ -16,4 +16,8 @@ div {
   margin: 30px auto;
   text-align: center;
 }
+
+h1 {
+  color: red;
+}
 </style>
