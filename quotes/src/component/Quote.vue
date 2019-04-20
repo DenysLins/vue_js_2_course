@@ -1,6 +1,11 @@
 <template>
   <div>
-    <slot></slot>
+    <div class="title">
+      <slot name="title"></slot>
+    </div>
+    <div>
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 
@@ -15,6 +20,10 @@ div {
   padding: 30px;
   margin: 30px auto;
   text-align: center;
+}
+
+.title {
+  font-family: fantasy;
 }
 
 /* h1 {
