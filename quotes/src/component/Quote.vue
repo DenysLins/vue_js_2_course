@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="title">
-      <slot name="title"></slot>
+      <slot name="title" />
       <span>
         <slot name="subtitle">The Quote subtitle</slot>
       </span>
     </div>
     <div>
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@
 export default {};
 </script>
 
-<style scoped>
+<style scoped >
 div {
   border: 1px solid #ccc;
   box-shadow: 1px 1px 2px black;
@@ -28,8 +28,4 @@ div {
 .title {
   font-family: fantasy;
 }
-
-/* h1 {
-  color: red;
-} */
 </style>

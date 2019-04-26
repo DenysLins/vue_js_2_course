@@ -1,8 +1,10 @@
 <template>
   <div>
     <h3>The New Quote</h3>
-    <button @click="counter++">Increase!</button>
-    <p>{{counter}}</p>
+    <button @click="counter++">
+      Increase!
+    </button>
+    <p>{{ counter }}</p>
   </div>
 </template>
 
@@ -13,9 +15,9 @@ export default {
       counter: 0
     };
   },
-  destroyed() {
-    console.log("Destroyed");
-  }
+  destroyed () {
+    console.log('DESTROYED');
+  },
 };
 </script>
 

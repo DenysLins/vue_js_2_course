@@ -2,14 +2,22 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <button @click="selectedComponent = 'appQuote'">Quote</button>
-        <button @click="selectedComponent = 'appAuthor'">Author</button>
-        <button @click="selectedComponent = 'appNew'">New</button>
+        <button @click="selectedComponent = 'appQuote'">
+          Quote
+        </button>
+        <button @click="selectedComponent = 'appAuthor'">
+          Author
+        </button>
+        <button @click="selectedComponent = 'appNew'">
+          New
+        </button>
         <hr>
         <p>{{ selectedComponent }}</p>
-        <component :is="selectedComponent">
-          <p>Default Content</p>
-        </component>
+        <keep-alive>
+          <component :is="selectedComponent">
+            <p>Default Content</p>
+          </component>
+        </keep-alive>
         <!-- <app-quote>
           <h1 slot="title">{{ quoteTitle }}</h1>
           <p>A wonderful Quote</p>
