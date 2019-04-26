@@ -18,10 +18,6 @@
             <p>Default Content</p>
           </component>
         </keep-alive>
-        <!-- <app-quote>
-          <h1 slot="title">{{ quoteTitle }}</h1>
-          <p>A wonderful Quote</p>
-        </app-quote>-->
       </div>
     </div>
   </div>
