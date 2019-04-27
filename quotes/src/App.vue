@@ -1,49 +1,38 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <button @click="selectedComponent = 'appQuote'">
-          Quote
-        </button>
-        <button @click="selectedComponent = 'appAuthor'">
-          Author
-        </button>
-        <button @click="selectedComponent = 'appNew'">
-          New
-        </button>
-        <hr>
-        <p>{{ selectedComponent }}</p>
-        <keep-alive>
-          <component :is="selectedComponent">
-            <p>Default Content</p>
-          </component>
-        </keep-alive>
-      </div>
-    </div>
+    <app-quote-grid :quotes="quotes" />
   </div>
 </template>
 
 <script>
-import QuoteVue from "./component/Quote.vue";
-import AuthorVue from "./component/Author.vue";
-import NewVue from "./component/New.vue";
+import QuoteGridVue from './component/QuoteGrid.vue';
+import { eventBus } from './main.js';
+
 export default {
   components: {
-    appQuote: QuoteVue,
-    appAuthor: AuthorVue,
-    appNew: NewVue
+    appQuoteGrid: QuoteGridVue
   },
-  data: () => {
+  data () {
     return {
-      quoteTitle: "The Quote",
-      selectedComponent: "appQuote"
+      quotes: [
+        {
+          text: 'Just a quote so see anything',
+          index: 0
+        }
+      ],
+      maxQuotes: 10
     };
+  },
+  created () {
+    eventBus.$on('createNewQuote', quote => {
+      let newQuote = {};
+      newQuote.text = quote;
+      newQuote.index = this.quotes.length;
+      this.quotes.push(newQuote);
+    });
   }
 };
 </script>
 
-<style scoped>
-h1 {
-  color: blue;
-}
+<style>
 </style>
