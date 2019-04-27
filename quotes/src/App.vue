@@ -20,7 +20,7 @@ export default {
       quotes: [
         "Just a quote so see anything"
       ],
-      maxQuotes: 2
+      maxQuotes: 10
     };
   },
   created () {
