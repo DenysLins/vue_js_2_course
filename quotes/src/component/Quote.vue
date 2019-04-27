@@ -1,41 +1,25 @@
 <template>
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="panel panel-default">
-      <div
-        class="panel-body quote"
-        @click="removeQuote(quote)"
-      >
-        {{ quote.text }}
+  <div class="col-md-3">
+    <div class="card">
+      <div class="quote card-body">
+        <slot />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from "./../main.js";
-export default {
-  props: ["quote"],
-  methods: {
-    removeQuote (quote) {
-      eventBus.removeQuote(quote);
-    }
-  }
-
-};
+export default {};
 </script>
 
 <style scoped>
-.panel-body {
+.card-body {
   font-family: "Arizonia", cursive;
   font-size: 24px;
   color: #6e6e6e;
   text-align: center;
   word-wrap: break-word;
-}
-.quote {
   cursor: pointer;
-}
-.quote:hover {
   background-color: #ffe2e2;
 }
 </style>

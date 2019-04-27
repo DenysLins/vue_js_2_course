@@ -15,23 +15,17 @@ export default {
   data () {
     return {
       quotes: [
-        {
-          text: "Just a quote so see anything",
-          index: 0
-        }
+        "Just a quote so see anything"
       ],
       maxQuotes: 10
     };
   },
   created () {
     eventBus.$on("createNewQuote", quote => {
-      let newQuote = {};
-      newQuote.text = quote;
-      newQuote.index = this.quotes.length;
-      this.quotes.push(newQuote);
+      this.quotes.push(quote);
     });
-    eventBus.$on("removeQuote", quote => {
-      this.quotes.splice(quote.index, quote.index + 1);
+    eventBus.$on("removeQuote", index => {
+      this.quotes.splice(index, index + 1);
     });
   }
 };
