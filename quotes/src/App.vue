@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <app-quote-grid :quotes="quotes" />
+    <app-quote-grid
+      :quotes="quotes"
+      :max-quotes="maxQuotes"
+    />
   </div>
 </template>
 
@@ -17,12 +20,16 @@ export default {
       quotes: [
         "Just a quote so see anything"
       ],
-      maxQuotes: 10
+      maxQuotes: 2
     };
   },
   created () {
     eventBus.$on("createNewQuote", quote => {
-      this.quotes.push(quote);
+      if (this.quotes.length >= this.maxQuotes) {
+        alert("Please remove a existent Quote before add a new one.");
+      } else {
+        this.quotes.push(quote);
+      }
     });
     eventBus.$on("removeQuote", index => {
       this.quotes.splice(index, index + 1);

@@ -1,5 +1,9 @@
 <template>
   <div class="row">
+    <app-header
+      :actual-quotes="quotes.length"
+      :total-quotes="maxQuotes"
+    />
     <app-new-quote />
     <app-quote
       v-for="(quote, index) in quotes"
@@ -8,7 +12,7 @@
     >
       {{ quote }}
     </app-quote>
-    <div class="col-12 my-3">
+    <div class="col-12 my-4">
       <div
         class="alert alert-info text-center"
         role="alert"
@@ -23,12 +27,14 @@
 import QuoteVue from "./Quote.vue";
 import NewQuoteVue from "./NewQuote.vue";
 import { eventBus } from "./../main.js";
+import HeaderVue from "./Header.vue";
 export default {
   components: {
+    appHeader: HeaderVue,
     appQuote: QuoteVue,
     appNewQuote: NewQuoteVue
   },
-  props: ["quotes"],
+  props: ["quotes", "maxQuotes"],
   methods: {
     removeQuote (index) {
       eventBus.removeQuote(index);
