@@ -5,6 +5,9 @@ export const eventBus = new Vue({
   methods: {
     createNewQuote(quote) {
       this.$emit("createNewQuote", quote);
+    },
+    removeQuote(quote) {
+      this.$emit("removeQuote", quote);
     }
   }
 });

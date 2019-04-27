@@ -3,10 +3,16 @@
     "ecmaVersion": 6
   },
   "env": {
-    "es6": true
+    "es6": true,
+    "browser": true,
+    "amd": true,
+    "node": true
   },
   "extends": [
     "plugin:vue/recommended",
     "eslint:recommended"
-  ]
+  ],
+  "rules": {
+    "quotes": ["error", "double"]
+  }
 }

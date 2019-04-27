@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import QuoteGridVue from './component/QuoteGrid.vue';
-import { eventBus } from './main.js';
+import QuoteGridVue from "./component/QuoteGrid.vue";
+import { eventBus } from "./main.js";
 
 export default {
   components: {
@@ -16,7 +16,7 @@ export default {
     return {
       quotes: [
         {
-          text: 'Just a quote so see anything',
+          text: "Just a quote so see anything",
           index: 0
         }
       ],
@@ -24,11 +24,14 @@ export default {
     };
   },
   created () {
-    eventBus.$on('createNewQuote', quote => {
+    eventBus.$on("createNewQuote", quote => {
       let newQuote = {};
       newQuote.text = quote;
       newQuote.index = this.quotes.length;
       this.quotes.push(newQuote);
+    });
+    eventBus.$on("removeQuote", quote => {
+      this.quotes.splice(quote.index, quote.index + 1);
     });
   }
 };

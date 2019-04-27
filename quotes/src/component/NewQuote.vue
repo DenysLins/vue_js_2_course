@@ -1,6 +1,6 @@
 <template>
-  <div class="row">
-    <form>
+  <div class="col-12">
+    <form class="row">
       <div class="col-sm-8 col-sm-offset-2 col-xs-12 col-md-6 col-md-offset-3 form-group">
         <label>Quote</label>
         <textarea
@@ -22,17 +22,19 @@
 </template>
 
 <script>
-import { eventBus } from './../main.js';
+import { eventBus } from "./../main.js";
 export default {
   data () {
     return {
-      quote: ''
+      quote: ""
     };
   },
   methods: {
     createNewQuote () {
-      eventBus.createNewQuote(this.quote);
-      this.quote = "";
+      if (this.quote !== "") {
+        eventBus.createNewQuote(this.quote);
+        this.quote = "";
+      }
     }
   }
 };
