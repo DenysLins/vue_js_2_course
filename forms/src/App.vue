@@ -18,7 +18,7 @@
             <label for="password">Password</label>
             <input
               id="password"
-              v-model="userData.password"
+              v-model.lazy="userData.password"
               type="password"
               class="form-control"
             >
@@ -60,6 +60,7 @@
             <label for="sendInfomail">
               <input
                 id="sendInfomail"
+                v-model="sendmail"
                 type="checkbox"
                 value="SendInfoMail"
               > Send Infomail
@@ -72,6 +73,7 @@
           <label for="male">
             <input
               id="male"
+              v-model="gender"
               type="radio"
               value="Male"
             > Male
@@ -79,6 +81,7 @@
           <label for="female">
             <input
               id="female"
+              v-model="gender"
               type="radio"
               value="Female"
             > Female
@@ -93,7 +96,12 @@
             v-model="priority"
             class="form-control"
           >
-            <option />
+            <option
+              v-for="(p,i) in priorities"
+              :key="i"
+            >
+              {{ p }}
+            </option>
           </select>
         </div>
       </div>
@@ -117,12 +125,19 @@
             <p>Mail: {{ userData.email }}</p>
             <p>Password: {{ userData.password }}</p>
             <p>Age: {{ userData.age }}</p>
-            <p>Message: {{ message }} </p>
+            <p style="white-space: pre">
+              Message: {{ message }}
+            </p>
             <p><strong>Send Mail?</strong></p>
             <ul>
-              <li />
+              <li
+                v-for="(item, index) in sendmail"
+                :key="index"
+              >
+                {{ item }}
+              </li>
             </ul>
-            <p>Gender:</p>
+            <p>Gender: {{ gender }}</p>
             <p>Priority: {{ priority }} </p>
             <p>Switched:</p>
           </div>
@@ -141,9 +156,12 @@ export default {
         password: "123456",
         age: "37"
       },
-      message: "",
+      message: "This is my initial message",
       sendmail: "",
-      priority: "",
+      priority: "Hight",
+      priorities: ["Hight", "Medium", "Low"],
+      sendmail: [],
+      gender: null,
     };
   },
 };
