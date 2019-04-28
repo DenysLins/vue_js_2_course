@@ -105,17 +105,25 @@
           </select>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <app-switch v-model="dataSwitched" />
+        </div>
+      </div>
       <hr>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-          <button class="btn btn-primary">
+          <button
+            class="btn btn-primary"
+            @click.prevent="submitted"
+          >
             Submit!
           </button>
         </div>
       </div>
     </form>
     <hr>
-    <div class="row">
+    <div v-if="isSubmitted" class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -139,7 +147,7 @@
             </ul>
             <p>Gender: {{ gender }}</p>
             <p>Priority: {{ priority }} </p>
-            <p>Switched:</p>
+            <p>Switched: {{ dataSwitched }}</p>
           </div>
         </div>
       </div>
@@ -148,7 +156,11 @@
 </template>
 
 <script>
+import SwitchVue from "./Switch.vue";
 export default {
+  components: {
+    appSwitch: SwitchVue
+  },
   data () {
     return {
       userData: {
@@ -162,8 +174,16 @@ export default {
       priorities: ["Hight", "Medium", "Low"],
       sendmail: [],
       gender: null,
+      dataSwitched: true,
+      isSubmitted: false
     };
   },
+  methods: {
+    submitted () {
+      this.isSubmitted = true;
+
+    }
+  }
 };
 </script>
 
