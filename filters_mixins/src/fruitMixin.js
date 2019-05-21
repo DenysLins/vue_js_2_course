@@ -10,5 +10,8 @@ export const fruitMixin = {
     toUppercase(value) {
       return value.toUpperCase();
     }
+  },
+  created() {
+    console.log("Created inside fruit mixin");
   }
 };

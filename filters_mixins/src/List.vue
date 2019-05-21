@@ -28,7 +28,10 @@ export default {
         return e.match(this.filterText);
       });
     }
-  }
+  },
+  created () {
+    console.log('Created @ List.vue');
+  },
 }
 </script>
 
