@@ -4,22 +4,17 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Animations</h1>
         <hr>
-        <button
-          class="btn btn-info"
-          @click="show = !show"
-        >Show Alert</button>
-        <br><br>
+        <button class="btn btn-info" @click="show = !show">Show Alert</button>
+        <br>
+        <br>
         <transition name="fade">
-          <div
-            class="alert alert-info"
-            v-if="show"
-          >This is an animated alert</div>
+          <div class="alert alert-info" v-if="show">This is an animated alert</div>
         </transition>
         <transition name="slide">
-          <div
-            class="alert alert-info"
-            v-if="show"
-          >This is an animated alert</div>
+          <div class="alert alert-info" v-if="show">This is an animated alert</div>
+        </transition>
+        <transition name="fade" appear>
+          <div class="alert alert-info" v-if="show">This is an animated alert</div>
         </transition>
       </div>
     </div>
@@ -28,12 +23,12 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       show: true
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
