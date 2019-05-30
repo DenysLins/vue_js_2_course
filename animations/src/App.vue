@@ -7,7 +7,7 @@
         <button class="btn btn-info" @click="show = !show">Show Alert</button>
         <br>
         <br>
-        <transition name="fade">
+        <transition appear enter-active-class="animated shake" leave-active-class="animated bounceOut">
           <div class="alert alert-info" v-if="show">This is an animated alert</div>
         </transition>
         <transition name="slide">
