@@ -18,16 +18,17 @@
           enter-active-class="animated shake"
           leave-active-class="animated bounceOut"
         >
-          <div class="alert alert-info" v-if="show">This is an animated alert</div>
+          <div class="alert alert-info" v-if="show">This is an animated info</div>
         </transition>
         <transition name="slide" appear>
-          <div class="alert alert-info" v-if="show">This is an animated alert</div>
+          <div class="alert alert-info" v-if="show">This is an animated info</div>
         </transition>
         <transition name="fade" appear>
-          <div class="alert alert-info" v-if="show">This is an animated alert</div>
+          <div class="alert alert-info" v-if="show">This is an animated info</div>
         </transition>
-        <transition :name="customAnimation" appear>
-          <div class="alert alert-info" v-if="show">This is an animated alert</div>
+        <transition :name="customAnimation" appear mode="out-in">
+          <div class="alert alert-info" v-if="show" key="info">This is an animated info</div>
+          <div class="alert alert-warning" v-else key="alert">This is an animated alert</div>
         </transition>
       </div>
     </div>
