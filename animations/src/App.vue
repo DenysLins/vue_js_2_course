@@ -7,13 +7,26 @@
         <button class="btn btn-info" @click="show = !show">Show Alert</button>
         <br>
         <br>
-        <transition appear enter-active-class="animated shake" leave-active-class="animated bounceOut">
+        <select v-model="customAnimation" class="form-control">
+          <option value="fade" selected>Fade</option>
+          <option value="slide">Slide</option>
+        </select>
+        <br>
+        <br>
+        <transition
+          appear
+          enter-active-class="animated shake"
+          leave-active-class="animated bounceOut"
+        >
           <div class="alert alert-info" v-if="show">This is an animated alert</div>
         </transition>
-        <transition name="slide">
+        <transition name="slide" appear>
           <div class="alert alert-info" v-if="show">This is an animated alert</div>
         </transition>
         <transition name="fade" appear>
+          <div class="alert alert-info" v-if="show">This is an animated alert</div>
+        </transition>
+        <transition :name="customAnimation" appear>
           <div class="alert alert-info" v-if="show">This is an animated alert</div>
         </transition>
       </div>
@@ -25,7 +38,8 @@
 export default {
   data() {
     return {
-      show: true
+      show: true,
+      customAnimation: "fade"
     };
   }
 };
