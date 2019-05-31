@@ -30,6 +30,23 @@
           <div class="alert alert-info" v-if="show" key="info">This is an animated info</div>
           <div class="alert alert-warning" v-else key="alert">This is an animated alert</div>
         </transition>
+        <br>
+        <br>
+        <button class="btn btn-info" @click="load = !load">Load / Unload Element</button>
+        <br>
+        <br>
+        <transition
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @enter-cancelled="enterCancelled"
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+          @leave-cancelled="leaveCancelled"
+        >
+          <div style="width: 100px; height: 100px; background-color: red" v-if="load"></div>
+        </transition>
       </div>
     </div>
   </div>
@@ -40,8 +57,37 @@ export default {
   data() {
     return {
       show: true,
+      load: true,
       customAnimation: "fade"
     };
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log("beforeEnter");
+    },
+    enter(el, done) {
+      console.log("enter");
+      done();
+    },
+    afterEnter(el) {
+      console.log("afterEnter");
+    },
+    enterCancelled(el) {
+      console.log("enterCancelled");
+    },
+    beforeLeave(el) {
+      console.log("beforeLeave");
+    },
+    leave(el, done) {
+      console.log("leave");
+      done();
+    },
+    afterLeave(el) {
+      console.log("afterLeave");
+    },
+    leaveCancelled(el) {
+      console.log("leaveCancelled");
+    }
   }
 };
 </script>
