@@ -4,11 +4,20 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Animations</h1>
         <hr>
-        <button class="btn btn-info" @click="show = !show">Show Alert</button>
+        <button
+          class="btn btn-info"
+          @click="show = !show"
+        >Show Alert</button>
         <br>
         <br>
-        <select v-model="customAnimation" class="form-control">
-          <option value="fade" selected>Fade</option>
+        <select
+          v-model="customAnimation"
+          class="form-control"
+        >
+          <option
+            value="fade"
+            selected
+          >Fade</option>
           <option value="slide">Slide</option>
         </select>
         <br>
@@ -18,21 +27,51 @@
           enter-active-class="animated shake"
           leave-active-class="animated bounceOut"
         >
-          <div class="alert alert-info" v-if="show">This is an animated info</div>
+          <div
+            class="alert alert-info"
+            v-if="show"
+          >This is an animated info</div>
         </transition>
-        <transition name="slide" appear>
-          <div class="alert alert-info" v-if="show">This is an animated info</div>
+        <transition
+          name="slide"
+          appear
+        >
+          <div
+            class="alert alert-info"
+            v-if="show"
+          >This is an animated info</div>
         </transition>
-        <transition name="fade" appear>
-          <div class="alert alert-info" v-if="show">This is an animated info</div>
+        <transition
+          name="fade"
+          appear
+        >
+          <div
+            class="alert alert-info"
+            v-if="show"
+          >This is an animated info</div>
         </transition>
-        <transition :name="customAnimation" appear mode="out-in">
-          <div class="alert alert-info" v-if="show" key="info">This is an animated info</div>
-          <div class="alert alert-warning" v-else key="alert">This is an animated alert</div>
+        <transition
+          :name="customAnimation"
+          appear
+          mode="out-in"
+        >
+          <div
+            class="alert alert-info"
+            v-if="show"
+            key="info"
+          >This is an animated info</div>
+          <div
+            class="alert alert-warning"
+            v-else
+            key="alert"
+          >This is an animated alert</div>
         </transition>
         <br>
         <br>
-        <button class="btn btn-info" @click="load = !load">Load / Unload Element</button>
+        <button
+          class="btn btn-info"
+          @click="load = !load"
+        >Load / Unload Element</button>
         <br>
         <br>
         <transition
@@ -46,7 +85,10 @@
           @leave-cancelled="leaveCancelled"
           :css="false"
         >
-          <div style="width: 100px; height: 100px; background-color: red" v-if="load"></div>
+          <div
+            style="width: 100px; height: 100px; background-color: red"
+            v-if="load"
+          ></div>
         </transition>
         <hr>
         <button
@@ -55,7 +97,12 @@
         >Toggle Compoent</button>
         <br>
         <br>
-        <component :is="selectedComponent"></component>
+        <transition
+          name="fade"
+          mode="out-in"
+        >
+          <component :is="selectedComponent"></component>
+        </transition>
       </div>
     </div>
   </div>
@@ -65,7 +112,7 @@
 import DangerAlert from "./DangerAlert.vue";
 import SuccessAlert from "./SuccessAlert.vue";
 export default {
-  data() {
+  data () {
     return {
       show: true,
       load: true,
@@ -75,12 +122,12 @@ export default {
     };
   },
   methods: {
-    beforeEnter(el) {
+    beforeEnter (el) {
       console.log("beforeEnter");
       this.elementWidth = 100;
       el.style.width = this.elementWidth + "px";
     },
-    enter(el, done) {
+    enter (el, done) {
       console.log("enter");
       let round = 1;
       const interval = setInterval(() => {
@@ -92,18 +139,18 @@ export default {
         }
       }, 20);
     },
-    afterEnter(el) {
+    afterEnter (el) {
       console.log("afterEnter");
     },
-    enterCancelled(el) {
+    enterCancelled (el) {
       console.log("enterCancelled");
     },
-    beforeLeave(el) {
+    beforeLeave (el) {
       console.log("beforeLeave");
       this.elementWidth = 300;
       el.style.width = this.elementWidth + "px";
     },
-    leave(el, done) {
+    leave (el, done) {
       console.log("leave");
       let round = 1;
       const interval = setInterval(() => {
@@ -115,10 +162,10 @@ export default {
         }
       }, 20);
     },
-    afterLeave(el) {
+    afterLeave (el) {
       console.log("afterLeave");
     },
-    leaveCancelled(el) {
+    leaveCancelled (el) {
       console.log("leaveCancelled");
     }
   },
