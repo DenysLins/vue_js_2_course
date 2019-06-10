@@ -95,14 +95,30 @@
           class="btn btn-primary"
           @click="selectedComponent == 'app-success-alert' ? selectedComponent = 'app-danger-alert' : selectedComponent = 'app-success-alert'"
         >Toggle Compoent</button>
-        <br>
-        <br>
+        <br><br>
         <transition
           name="fade"
           mode="out-in"
         >
           <component :is="selectedComponent"></component>
         </transition>
+        <hr>
+        <button
+          class="btn btn-primary"
+          @click="addEl"
+        >Add Item</button>
+        <br><br>
+        <ul class="list-group">
+          <transition-group name="slide">
+            <li
+              class="list-group-item"
+              v-for="(number, index) in numbers"
+              :key="index"
+              @click="removeEl(index)"
+              style="cursor: pointer"
+            >{{ number }}</li>
+          </transition-group>
+        </ul>
       </div>
     </div>
   </div>
@@ -118,7 +134,8 @@ export default {
       load: true,
       customAnimation: "fade",
       elementWidth: 100,
-      selectedComponent: "app-success-alert"
+      selectedComponent: "app-success-alert",
+      numbers: [1, 2, 3, 4, 5]
     };
   },
   methods: {
@@ -167,6 +184,12 @@ export default {
     },
     leaveCancelled (el) {
       console.log("leaveCancelled");
+    },
+    removeEl (index) {
+      this.numbers.splice(index, 1);
+    },
+    addEl () {
+      this.numbers.push(this.numbers.length + 1);
     }
   },
   components: {
@@ -190,6 +213,11 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1s;
+}
+
+.fade-move,
+.slide-move {
+  transition: transform 1s;
 }
 
 .slide-enter,
