@@ -12,6 +12,17 @@
           <input type="email" class="form-control" id="mail" v-model="user.mail">
         </div>
         <button class="btn btn-primary" @click="submit">Submit</button>
+        <hr>
+        <button class="btn btn-primary" @click="fetchData">Get Data</button>
+        <br>
+        <br>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            v-for="(u, i) in users"
+            :key="i"
+          >{{ u.username }} - {{ u.mail}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -24,22 +35,39 @@ export default {
       user: {
         username: "",
         mail: ""
-      }
+      },
+      users: [],
+      url: "firebase_url"
     };
   },
   methods: {
     submit() {
-      console.log(this.user);
       this.$http
-        .post("https://vue-resource-bcaec.firebaseio.com/data.json", this.user)
-        .then(
-          response => {
-            console.log(response);
-          },
-          error => {
-            console.log(error);
+        .post(this.url, this.user)
+        .then(response => {
+          this.user.username = "";
+          this.user.mail = "";
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    fetchData() {
+      this.$http
+        .get(this.url)
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          const resultArray = [];
+          for (let d in data) {
+            resultArray.push(data[d]);
           }
-        );
+          this.users = resultArray;
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 };
