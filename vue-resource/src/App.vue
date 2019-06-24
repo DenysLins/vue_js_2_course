@@ -36,14 +36,13 @@ export default {
         username: "",
         mail: ""
       },
-      users: [],
-      url: "firebase_url"
+      users: []
     };
   },
   methods: {
     submit() {
       this.$http
-        .post(this.url, this.user)
+        .post("", this.user)
         .then(response => {
           this.user.username = "";
           this.user.mail = "";
@@ -54,7 +53,7 @@ export default {
     },
     fetchData() {
       this.$http
-        .get(this.url)
+        .get("")
         .then(response => {
           return response.json();
         })
