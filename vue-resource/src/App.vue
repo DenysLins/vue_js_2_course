@@ -4,24 +4,23 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Http</h1>
         <div class="form-group">
-          <label for="name">Username</label>
-          <input type="text" class="form-control" id="name" v-model="user.username">
+          <label>Username</label>
+          <input class="form-control" type="text" v-model="user.username" />
         </div>
         <div class="form-group">
-          <label for="mail">Mail</label>
-          <input type="email" class="form-control" id="mail" v-model="user.mail">
+          <label>Mail</label>
+          <input class="form-control" type="text" v-model="user.email" />
         </div>
         <button class="btn btn-primary" @click="submit">Submit</button>
-        <hr>
+        <hr />
+        <input class="form-control" type="text" v-model="node" />
+        <br />
+        <br />
         <button class="btn btn-primary" @click="fetchData">Get Data</button>
-        <br>
-        <br>
+        <br />
+        <br />
         <ul class="list-group">
-          <li
-            class="list-group-item"
-            v-for="(u, i) in users"
-            :key="i"
-          >{{ u.username }} - {{ u.mail}}</li>
+          <li class="list-group-item" v-for="u in users">{{ u.username }} - {{ u.email }}</li>
         </ul>
       </div>
     </div>
@@ -34,40 +33,39 @@ export default {
     return {
       user: {
         username: "",
-        mail: ""
+        email: ""
       },
-      users: []
+      users: [],
+      resource: {},
+      node: "data"
     };
   },
   methods: {
     submit() {
-      this.$http
-        .post("", this.user)
-        .then(response => {
-          this.user.username = "";
-          this.user.mail = "";
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      //                this.resource.save({}, this.user);
+      this.resource.saveAlt(this.user);
     },
     fetchData() {
-      this.$http
-        .get("")
+      this.resource
+        .getData({ node: this.node })
         .then(response => {
           return response.json();
         })
         .then(data => {
           const resultArray = [];
-          for (let d in data) {
-            resultArray.push(data[d]);
+          for (let key in data) {
+            resultArray.push(data[key]);
           }
           this.users = resultArray;
-        })
-        .catch(error => {
-          console.log(error);
         });
     }
+  },
+  created() {
+    const customActions = {
+      saveAlt: { method: "POST", url: "alternative.json" },
+      getData: { method: "GET" }
+    };
+    this.resource = this.$resource("{node}.json", {}, customActions);
   }
 };
 </script>
