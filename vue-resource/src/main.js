@@ -6,9 +6,10 @@ Vue.use(VueResource);
 
 Vue.http.options.root = 'firebase_endpoint'
 Vue.http.interceptors.push((request, next) => {
-  console.log(request)
   if (request.method == 'POST') request.method = 'PUT'
-  next()
+  next(response => {
+    response.json = () => { return { message: response.body } }
+  })
 })
 
 new Vue({
