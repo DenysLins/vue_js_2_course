@@ -19,7 +19,8 @@ export const routes = [{
       component: UserDetail
     }, {
       path: ":id/edit",
-      component: UserEdit
+      component: UserEdit,
+      name: 'userEdit'
     }]
   }
 ];
