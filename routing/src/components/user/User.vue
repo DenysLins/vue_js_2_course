@@ -2,8 +2,14 @@
   <div>
     <h1>The User Page</h1>
     <button class="btn btn-primary" @click="navigateToHome">Go Home</button>
-    <hr>
-    <router-view></router-view>
+    <hr />
+    <transition
+      enter-active-class="animated fadeIn"
+      leave-active-class="animated fadeOut"
+      mode="out-in"
+    >
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -16,4 +22,3 @@ export default {
   }
 };
 </script>
-

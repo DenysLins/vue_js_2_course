@@ -6,7 +6,13 @@
         <hr />
         <app-header></app-header>
         <hr />
-        <router-view></router-view>
+        <transition
+          enter-active-class="animated fadeIn"
+          leave-active-class="animated fadeOut"
+          mode="out-in"
+        >
+          <router-view></router-view>
+        </transition>
       </div>
     </div>
   </div>
