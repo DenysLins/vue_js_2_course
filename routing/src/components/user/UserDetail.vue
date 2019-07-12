@@ -23,6 +23,14 @@ export default {
         hash: "#data"
       }
     };
+  },
+  beforeRouteEnter(to, from, next) {
+    console.log("beforeRouteEnter inside component");
+    next();
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log("beforeRouteLeave inside component");
+    next();
   }
 };
 </script>
